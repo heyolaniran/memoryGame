@@ -5,6 +5,11 @@
   text-align: center;
 }
 
+
+body  {
+  background-color: rgb(27, 1, 21);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -33,10 +38,18 @@
   }
 }
 
+button {
+  background-color: transparent;
+  border: 0px 2px white;
+  border-radius: 100px;
+}
 .card {
   padding: 2em;
 }
 
 .read-the-docs {
   color: #888;
+}
+h1 {
+  color: white
 }
