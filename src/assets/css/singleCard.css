@@ -12,3 +12,13 @@
 .front {
     display: none;
 }
+
+.card .front {
+    transform: rotate(90deg);
+    position: absolute;
+}
+
+.flipped .front {
+    transform: rotate(0deg);
+    
+}
