@@ -51,7 +51,7 @@ function App() {
            
            { cards.map(card => (
             
-              <SingleCard key={card.id} card={card.card}/>
+              <SingleCard key={card.id} card={card}/>
              
            )) }
 
