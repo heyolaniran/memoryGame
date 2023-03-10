@@ -1,11 +1,12 @@
 import  '../assets/css/SingleCard.css' ; 
 
 export default function SingleCard ({card, handleChoice}) {
-
-    const handleClick = (card) =>
-    {
+   
+    const handleClick = () => {
+        
         handleChoice(card)
     }
+
     return (
         <div className="card">
 

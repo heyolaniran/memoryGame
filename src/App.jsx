@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import SingleCard from './components/SingleCard';
@@ -33,10 +33,39 @@ function App() {
   }
 
 
+
+  //comparing choices
+
+
+  
+
+
   const handleChoice = (card) => {
-     choiceOne ? setChoiceTwo(card) : setChoiceOne(card) ; 
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card) 
   }
 
+
+  useEffect(() => {
+    if(choiceOne && choiceTwo)
+    {
+        if(choiceOne.src === choiceTwo.src)
+        {
+          console.log("matches")
+          resetTurns() ; 
+        }else 
+        {
+          console.log("do not matches")
+          resetTurns() ;
+        }
+    }
+  }, [choiceOne, choiceTwo])
+
+  const resetTurns = () => {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns((prevTurns) => prevTurns + 1)
+}
+ 
 
   return (
     <div className="App">
@@ -60,7 +89,7 @@ function App() {
             
               <SingleCard 
                 key={card.id} 
-                card={card}
+                card={card.card}
                 handleChoice={handleChoice}
               />
              
