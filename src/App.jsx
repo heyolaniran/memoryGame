@@ -19,6 +19,9 @@ function App() {
   const [cards, setCards] = useState([]) ; 
   const [turns, setTurns] = useState(0) ; 
 
+  const [choiceOne, setChoiceOne] = useState(null)
+  const [choiceTwo, setChoiceTwo]  = useState(null)
+
   const shuffleCards = () => {
      const shuffled = [...cardImages, ...cardImages] 
      .sort(() => Math.random() -0.5 )
@@ -29,7 +32,11 @@ function App() {
 
   }
 
-  console.log(cards , turns) ; 
+
+  const handleChoice = (card) => {
+     choiceOne ? setChoiceTwo(card) : setChoiceOne(card) ; 
+  }
+
 
   return (
     <div className="App">
@@ -51,7 +58,11 @@ function App() {
            
            { cards.map(card => (
             
-              <SingleCard key={card.id} card={card}/>
+              <SingleCard 
+                key={card.id} 
+                card={card}
+                handleChoice={handleChoice}
+              />
              
            )) }
 
