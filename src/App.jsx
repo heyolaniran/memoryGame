@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import SingleCard from './components/SingleCard';
 
 const cardImages = [
   {"src" : "/img/helmet-1.png"}, 
@@ -41,13 +42,20 @@ function App() {
         </a>
       </div>
       <h1>Memory Game </h1>
-      <div className="card">
+      <div className="party">
         <button onClick={shuffleCards}>
         Nouvelle partie 
         </button>
-        <p>
         
-        </p>
+        <div className="game-grid">
+           
+           { cards.map(card => (
+            
+              <SingleCard key={card.id} card={card.card}/>
+             
+           )) }
+
+        </div>
       </div>
       
     </div>

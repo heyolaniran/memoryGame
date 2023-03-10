@@ -43,7 +43,7 @@ button {
   border: 0px 2px white;
   border-radius: 100px;
 }
-.card {
+.party {
   padding: 2em;
 }
 
@@ -53,3 +53,11 @@ button {
 h1 {
   color: white
 }
+
+.game-grid {
+  margin-top: 50px; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap : 5px ; 
+}
+
