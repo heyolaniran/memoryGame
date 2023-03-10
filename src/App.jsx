@@ -41,30 +41,36 @@ function App() {
 
 
   const handleChoice = (card) => {
+ 
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card) 
+    console.log(choiceOne)
+    console.log(choiceTwo)  
   }
 
+  
 
   useEffect(() => {
+
+
     if(choiceOne && choiceTwo)
     {
-        if(choiceOne.src === choiceTwo.src)
+        if(choiceOne.card.src === choiceTwo.card.src)
         {
-
-          setCards(cards => {
-           return cards.map(card => {
-              if(card.card.src === choiceOne.src)
+          setCards(prevCards => {
+           return prevCards.map(card => {
+              if(card.card.src === choiceOne.card.src)
               {
                  return {...card, matched : true}
               }else 
               return card
             })
           })
-          resetTurns() ; 
+          console.log("matches")
+          resetTurns()
         }else 
         {
           console.log("do not matches")
-          resetTurns() ;
+         resetTurns()
         }
     }
   }, [choiceOne, choiceTwo])
@@ -97,12 +103,16 @@ function App() {
         <div className="game-grid">
            
            { cards.map(card => (
-            
+             <div>
+                
               <SingleCard 
                 key={card.id} 
-                card={card.card}
+                card={card}
                 handleChoice={handleChoice}
+                flipped = { choiceTwo ==card || choiceOne == card || card.matched }
               />
+             </div>
+             
              
            )) }
 
