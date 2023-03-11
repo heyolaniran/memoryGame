@@ -26,7 +26,8 @@ function App() {
      const shuffled = [...cardImages, ...cardImages] 
      .sort(() => Math.random() -0.5 )
      .map((card) => ({card, id: Math.random()}))
-
+     setChoiceOne(null)
+     setChoiceTwo(null)
      setCards(shuffled)
      setTurns(0)
 
@@ -83,6 +84,22 @@ function App() {
     setTurns((prevTurns) => prevTurns + 1)
 }
 
+// automatically start the game 
+
+useEffect(() => {
+  shuffleCards() 
+}, [])
+
+// share on whatsapp 
+
+const handleShare = () => {
+
+  const message = `Mon top score de carte tourné sur le memory game est de ${turns} , jouez-y ici http://memorygame.netlify.com`; 
+
+  window.location.href =`https://web.whatsapp.com/send?text=${message}`
+
+}
+
 
   return (
     <div className="App">
@@ -116,8 +133,20 @@ function App() {
              
            )) }
 
+
+
         </div>
+
+        <h3>
+          Nombre de tours : { turns }
+        </h3>
+
       </div>
+
+      <div>
+         <button onClick={handleShare}> Partager sur whatsapp </button>
+      </div>
+
       
     </div>
   )
