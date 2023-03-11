@@ -96,7 +96,7 @@ const handleShare = () => {
 
   const message = `Mon top score de carte tourné sur le memory game est de ${turns} , jouez-y ici https://memorygamevite.netlify.app`; 
 
-  window.location.href =`https://web.whatsapp.com/send?text=${message}`
+  window.location.href =`https://wa.me/send?phone=22996584394&text=${message}`
 
 }
 
