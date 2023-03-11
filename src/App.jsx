@@ -94,7 +94,7 @@ useEffect(() => {
 
 const handleShare = () => {
 
-  const message = `Mon top score de carte tourné sur le memory game est de ${turns} , jouez-y ici http://memorygame.netlify.app`; 
+  const message = `Mon top score de carte tourné sur le memory game est de ${turns} , jouez-y ici https://memorygamevite.netlify.app`; 
 
   window.location.href =`https://web.whatsapp.com/send?text=${message}`
 
